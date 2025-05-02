@@ -7,7 +7,7 @@ public class Note {
 	private LocalDate date;
 	private LocalDateTime time;
 	private String title;
-	private 	String note;
+	private String note;
 	
 	public Note(String title,String note) {
 		this.time = LocalDateTime.now();
