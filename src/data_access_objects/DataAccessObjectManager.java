@@ -1,10 +1,12 @@
 package data_access_objects;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class DataAccessObjectManager {
 	private Connection connection;
-	private static final String DataBase_URL = "jdbc:sqlite:database/NotesData.db";
+	private static final String DataBase_URL = "jdbc:sqlite:data/NotesData.db";
 	private static DataAccessObjectManager instance;
 	private BlockDataAccessObject blockDataAccessObject;
 	
@@ -14,8 +16,10 @@ public class DataAccessObjectManager {
 			Class.forName("org.sqlite.JDBC");
 			
 			// Create connection
-			connection = java.sql.DriverManager.getConnection(DataBase_URL);
-			
+			connection = DriverManager.getConnection(DataBase_URL);
+			try (Statement stmt = connection.createStatement()) {
+			    stmt.execute("PRAGMA foreign_keys = ON;");
+			}
 			// Initialize data access objects
 			initializeDataAccessObjects();
 			

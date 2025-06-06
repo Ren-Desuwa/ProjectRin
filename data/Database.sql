@@ -11,14 +11,14 @@ CREATE TABLE blocks (
 );
 
 CREATE TABLE notes (
-    note_id INTEGER PRIMARY KEY,
+    note_id INTEGER PRIMARY KEY AUTOINCREMENT,
     block_id INTEGER,
     content TEXT NOT NULL,
     FOREIGN KEY (block_id) REFERENCES blocks(block_id) ON DELETE CASCADE
 );
 
 CREATE TABLE pages (
-    page_id PRIMARY KEY,
+    page_id INTEGER PRIMARY KEY AUTOINCREMENT,
     block_id INTEGER,
     page_title TEXT NOT NULL,
     FOREIGN KEY (block_id) REFERENCES blocks(block_id) ON DELETE CASCADE
