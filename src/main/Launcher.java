@@ -1,15 +1,11 @@
 package main;
 
-import model.Note;
-import view.NoteFrame;
+import data_access_objects.DataAccessObjectManager;
+import view.Main_Menu;
 
 public class Launcher {
 	public static void main(String[] args) {
-		Note note = new Note("A New Note","This is a description of a note");
-		
-		System.out.print(note.getNote());
-		
-		NoteFrame frame = new NoteFrame(note);
-		frame.OpenNote();
+		DataAccessObjectManager daoManager = DataAccessObjectManager.getInstance();
+		Main_Menu.launch(daoManager);
 	}
 }
