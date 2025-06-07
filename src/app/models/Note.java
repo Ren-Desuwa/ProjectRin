@@ -1,4 +1,4 @@
-package main.java.app.models;
+package app.models;
 
 public class Note extends Block {
 	private long note_id;

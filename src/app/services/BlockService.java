@@ -1,5 +1,5 @@
-package main.java.app.services;
-import main.java.app.db.BlockRepository;
+package app.services;
+import app.db.BlockRepository;
 
 public class BlockService {
 	

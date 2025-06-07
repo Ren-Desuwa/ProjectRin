@@ -1,4 +1,4 @@
-package main.java.app.ui;
+package app.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class MainMenu extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/view/MainMenu.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setTitle("ProjectRin - Main Menu");
 			primaryStage.setScene(scene);

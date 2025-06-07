@@ -1,6 +1,6 @@
-package main.java.app.services;
+package app.services;
 
-import main.java.app.db.NoteRepository;
+import app.db.NoteRepository;
 
 public class NoteService {
 	private NoteRepository noteRepository;

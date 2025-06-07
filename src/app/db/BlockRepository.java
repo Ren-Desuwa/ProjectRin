@@ -1,11 +1,11 @@
-package main.java.app.db;
+package app.db;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
-import main.java.app.models.Block;
+import app.models.Block;
 
 public class BlockRepository {
 	
