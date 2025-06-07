@@ -1,4 +1,4 @@
-package models;
+package main.java.app.models;
 
 public class Block {
 	protected long block_id;

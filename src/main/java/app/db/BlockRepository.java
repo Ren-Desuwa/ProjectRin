@@ -1,24 +1,23 @@
-package data_access_objects;
+package main.java.app.db;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
-import models.Block;
+import main.java.app.models.Block;
 
-public class BlockDataAccessObject {
+public class BlockRepository {
 	
-	private Connection connection;
+	private DatabaseManager dbManager;
 	
-	protected BlockDataAccessObject(Connection connection) {
-		this.connection = connection;
+	public BlockRepository(DatabaseManager dbManager) {
+		this.dbManager = dbManager;
 	}
 	
 	public Block addNote(Block block) throws SQLException {
 		String query = "INSERT INTO blocks (type, page_id, order_index, previous_block_id, next_block_id) VALUES (?, ?, ?, ?, ?)";
-		try (PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
+		try (PreparedStatement statement = dbManager.getConnection().prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
 			statement.setString(1, block.getType());
 			statement.setLong(2, block.getParentPageId());
 			statement.setLong(3, block.getOrderIndex());
@@ -51,7 +50,7 @@ public class BlockDataAccessObject {
 	
 	public boolean deleteBlock(Block block) throws SQLException {
 		String query = "DELETE FROM blocks WHERE id = ?";
-		try (PreparedStatement statement = connection.prepareStatement(query)) {
+		try (PreparedStatement statement = dbManager.getConnection().prepareStatement(query)) {
 			statement.setLong(1, block.getblockId());
 			int rowsAffected = statement.executeUpdate();
 			return rowsAffected > 0; // Return true if a block was deleted
@@ -63,7 +62,7 @@ public class BlockDataAccessObject {
 	
 	public Block updateBlock(Block block) throws SQLException {
 		String query = "UPDATE blocks SET type = ?, page_id = ?, order_index = ?, previous_block_id = ?, next_block_id = ? WHERE id = ?";
-		try (PreparedStatement statement = connection.prepareStatement(query)) {
+		try (PreparedStatement statement = dbManager.getConnection().prepareStatement(query)) {
 			statement.setString(1, block.getType());
 			statement.setLong(2, block.getParentPageId());
 			statement.setLong(3, block.getOrderIndex());
