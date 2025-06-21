@@ -5,15 +5,15 @@ import app.db.DatabaseManager;
 import app.db.NoteRepository;
 import app.services.BlockService;
 import app.services.NoteService;
-import app.ui.MainMenu;
+import app.ui.view.MainMenu;
+import javafx.application.Application;
 
 public class Main {
 	public static void main(String[] args) {
 		System.out.println("Welcome Ren!");
 		databaseInit();
 		
-		launchMainMenu(args);
-
+		Application.launch(MainMenu.class, args);
 	}
 	
 	private static void databaseInit() {
@@ -25,7 +25,5 @@ public class Main {
 		
 		BlockRepository blockRepository = new BlockRepository(dbManager);
 		BlockService blockService = new BlockService(blockRepository);
-		
-		// Additional initialization logic can go here
 	}
 }

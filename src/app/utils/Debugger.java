@@ -3,7 +3,7 @@ package app.utils;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Debbuger {
+public class Debugger {
     private static boolean enabled = true;
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 

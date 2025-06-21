@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane prefHeight="400.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.controller.MainMenuController">
+   <center>
+      <StackPane prefHeight="394.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <AnchorPane fx:id="sidePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="221.0" StackPane.alignment="CENTER_LEFT">
+               <children>
+                  <ScrollPane prefHeight="375.0" prefWidth="221.0" />
+               </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </AnchorPane>
+            <Rectangle id="HoverTrigger" fx:id="hoverTrigger" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="375.0" stroke="TRANSPARENT" strokeType="INSIDE" width="32.0" StackPane.alignment="CENTER_LEFT" />
+         </children>
+      </StackPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Settings">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Preferences (Coming Soon)" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Open File (Coming Soon)" />
+                  <MenuItem mnemonicParsing="false" text="New File (Coming Soon)" />
+                  <MenuItem mnemonicParsing="false" text="Save (Coming Soon)" />
+                  <MenuItem mnemonicParsing="false" text="Save As (Coming Soon)" />
+                  <MenuItem mnemonicParsing="false" text="Delete (Coming Soon)" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

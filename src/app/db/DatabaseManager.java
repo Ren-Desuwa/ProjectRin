@@ -20,7 +20,7 @@ public class DatabaseManager {
 			try (Statement stmt = connection.createStatement()) {
 			    stmt.execute("PRAGMA foreign_keys = ON;");
 			}
-		} catch (ClassNotFoundException | java.sql.SQLException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 	}
